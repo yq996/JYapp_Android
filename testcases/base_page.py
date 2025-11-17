@@ -19,8 +19,8 @@ class BasePage:
         el.click()
         self.wait(2)
 
-    def long_click(self):
-        finder = self.finder.by_value_key("ptzLeftKey")
+    def long_click(self,key):
+        finder = self.finder.by_value_key(key)
         options={
             "durationMilliseconds": 3000,
             "frequency": 60
@@ -34,8 +34,8 @@ class BasePage:
             {"alignment": 0.1}
         )
 
-    def scroll(self):
-        finder = self.finder.by_value_key("refreshIndicatorKey")
+    def scroll(self,key):
+        finder = self.finder.by_value_key(key)
         # 直接用 flutter:scroll 命令滚动固定像素
         scroll_value = {
             "dx": 0,
