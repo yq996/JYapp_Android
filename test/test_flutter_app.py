@@ -54,8 +54,6 @@ class TestFlutterApp:
 
         self.driver.back()
 
-        # self.driver.quit()
-
 
 
 

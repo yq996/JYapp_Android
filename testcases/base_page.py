@@ -36,7 +36,6 @@ class BasePage:
 
     def scroll(self,key):
         finder = self.finder.by_value_key(key)
-        # 直接用 flutter:scroll 命令滚动固定像素
         scroll_value = {
             "dx": 0,
             "dy": 500,
