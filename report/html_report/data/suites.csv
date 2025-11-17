@@ -1,2 +1,2 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","6717","l7jzqwc6i7jnivu8设备用例执行","test","Wed Nov 12 16:49:07 CST 2025","failed","Wed Nov 12 16:49:14 CST 2025","TestFlutterApp","test_flutter_app","",""
+"","18435","l7jzqwc6i7jnivu8设备用例执行","test","Mon Nov 17 10:14:57 CST 2025","passed","Mon Nov 17 10:15:15 CST 2025","TestFlutterApp","test_flutter_app","",""

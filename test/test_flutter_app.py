@@ -2,7 +2,7 @@ import time
 
 import allure
 from appium import webdriver
-from appium_flutter_finder.flutter_finder import FlutterFinder
+from appium_flutter_finder.flutter_finder import FlutterFinder, FlutterElement
 from appium.options.common import AppiumOptions
 
 from testcases.login_page import LoginPage
@@ -36,6 +36,9 @@ class TestFlutterApp:
 
         yield
 
+        if self.driver:
+            self.driver.quit()
+
         # self.driver.quit() #测试执行之后的操作
     def test_runner(self):
         allure.dynamic.title(f"{self.udid}设备用例执行")
@@ -44,11 +47,15 @@ class TestFlutterApp:
 
         # 登录操作
         login_page.login("18588261207", "1qaz2wsx")
-        time.sleep(5)
 
-        # play_page.play_video()
+
+        play_page.play_video()
+
 
         self.driver.back()
+
+        # self.driver.quit()
+
 
 
 

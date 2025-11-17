@@ -1,3 +1,5 @@
+import allure
+
 from testcases.base_page import BasePage
 
 class PlayPage(BasePage):
@@ -14,15 +16,12 @@ class PlayPage(BasePage):
     PRENIEW="preview_touch_key"#竖屏+横屏拉流界面
     DISMISS="dismissFamilyVoiceDialog"
 
-
+    @allure.step("云台控制页测试")
     def play_video(self):
+        self.scroll()
         self.click(self.PLAY_IPC)
         self.click(self.DISMISS)
         self.click(self.PTZ_BTN)
-        self.click(self.PTZ_LEFT)
-        self.click(self.PTZ_LEFT)
-        self.click(self.PTZ_LEFT)
-        self.click(self.PTZ_LEFT)
-        self.click(self.PTZ_LEFT)
+        self.long_click()
         self.click(self.PTZ_BTN)
 

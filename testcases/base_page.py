@@ -2,6 +2,7 @@ import time
 import allure
 from appium_flutter_finder.flutter_finder import FlutterElement
 
+
 class BasePage:
     def __init__(self, driver, finder):
         self.driver = driver
@@ -16,8 +17,33 @@ class BasePage:
     def click(self, key):
         el = self.get_element(key)
         el.click()
-        self.wait(3)
+        self.wait(2)
 
+    def long_click(self):
+        finder = self.finder.by_value_key("ptzLeftKey")
+        options={
+            "durationMilliseconds": 3000,
+            "frequency": 60
+        }
+        self.driver.execute_script('flutter:longTap', finder,options)
+
+    def scrollIntoView(self):
+        self.driver.execute_script(
+            'flutter:scrollIntoView',
+            self.finder.by_value_key("play_0"),
+            {"alignment": 0.1}
+        )
+
+    def scroll(self):
+        finder = self.finder.by_value_key("refreshIndicatorKey")
+        # 直接用 flutter:scroll 命令滚动固定像素
+        scroll_value = {
+            "dx": 0,
+            "dy": 500,
+            "durationMilliseconds": 200,
+            "frequency": 60,
+        }
+        self.driver.execute_script('flutter:scroll', finder, scroll_value)
 
     def send_keys(self, key, text):
         el = self.get_element(key)
