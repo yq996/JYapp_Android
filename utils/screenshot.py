@@ -8,6 +8,7 @@ def screenshot(driver):
         native_context = next(c for c in contexts if 'NATIVE_APP' in c)
         driver.switch_to.context(native_context)
 
+
         # 现在可以正常截图
         driver.get_screenshot_as_file("flutter_screenshot.png")
         allure.attach.file("flutter_screenshot.png",name="个人中心截图",attachment_type=allure.attachment_type.PNG)

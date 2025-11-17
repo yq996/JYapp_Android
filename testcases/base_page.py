@@ -1,7 +1,7 @@
 import time
 import allure
 from appium_flutter_finder.flutter_finder import FlutterElement
-
+from typing import Callable
 
 class BasePage:
     def __init__(self, driver, finder):
@@ -60,3 +60,16 @@ class BasePage:
 
     def wait(self, sec:int):
         time.sleep(sec)
+
+    def tap_x_y(self,x,y):
+        self.driver.tap([(x,y)],500)
+
+    def switch_context(self,func: Callable, *args):
+        contexts = self.driver.contexts
+        native_context = next(c for c in contexts if 'NATIVE_APP' in c)
+        self.driver.switch_to.context(native_context)
+
+        func(*args)
+
+        flutter_context = next(c for c in contexts if 'FLUTTER' in c)
+        self.driver.switch_to.context(flutter_context)

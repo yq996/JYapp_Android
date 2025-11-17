@@ -48,8 +48,18 @@ class TestFlutterApp:
         # 登录操作
         login_page.login("18588261207", "1qaz2wsx")
 
-
-        play_page.play_video()
+        play_page.enter_play_page()
+        # play_page.play_video1()
+        # play_page.play_video2()
+        # play_page.play_video3()
+        # play_page.play_video4()
+        # play_page.play_video5()
+        # play_page.play_video6()
+        # play_page.play_video7()
+        # play_page.play_video8()
+        # play_page.take_pic()
+        # play_page.quick_play()
+        play_page.talk_play()
 
 
         self.driver.back()
