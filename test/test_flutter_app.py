@@ -1,11 +1,15 @@
 import time
-
 import allure
+import pytest
 from appium import webdriver
 from appium_flutter_finder.flutter_finder import FlutterFinder, FlutterElement
 from appium.options.common import AppiumOptions
+from pyexpat.errors import messages
 
+from testcases.devices import Device
 from testcases.login_page import LoginPage
+from testcases.message import Message
+from testcases.person import Person
 from testcases.play_page import PlayPage
 from utils.record_video import *
 from utils.get_devices import make_devices_list
@@ -39,16 +43,19 @@ class TestFlutterApp:
         if self.driver:
             self.driver.quit()
 
-        # self.driver.quit() #测试执行之后的操作
-    def test_runner(self):
+    def test_1(self):
         allure.dynamic.title(f"{self.udid}设备用例执行")
         login_page = LoginPage(self.driver, self.finder)
         play_page = PlayPage(self.driver, self.finder)
+        message_page=Message(self.driver, self.finder)
+        person_page=Person(self.driver, self.finder)
+        device_page=Device(self.driver, self.finder)
 
         # 登录操作
         login_page.login("18588261207", "1qaz2wsx")
 
         play_page.enter_play_page()
+        play_page.pa()
         # play_page.play_video1()
         # play_page.play_video2()
         # play_page.play_video3()
@@ -59,10 +66,14 @@ class TestFlutterApp:
         # play_page.play_video8()
         # play_page.take_pic()
         # play_page.quick_play()
-        play_page.talk_play()
+        # self.driver.back()
+        # play_page.talk_play()
+        # play_page.care_play()
+        # play_page.setting_play()
+        # message_page.message_home()
+        # person_page.person_home()
+        # device_page.devices_home()
 
-
-        self.driver.back()
 
 
 

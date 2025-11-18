@@ -8,7 +8,6 @@ class PlayPage(BasePage):
     #key值
     PLAY_IPC = "play_0" #进入设备拉流界面
     PTZ_BTN = "ptzControlBtnKey" #点击云台控制
-    REFRESH_BTN = "refreshIndicatorKey" #设备刷新
     PTZ_UP = "ptzUpKey" #云台控制上
     PTZ_DOWN="ptzDownKey"#云台控制下
     PTZ_LEFT="ptzLeftKey"#云台控制左
@@ -19,11 +18,14 @@ class PlayPage(BasePage):
     TAKEPIC="takePicKey" #截图
     RECORD="recordKey" #录像
     FULLSCREEN="fullScreenKey"#全屏
-    TALK="_talkMenuKey"
+    TALK="_talkMenuKey"#对讲
+    MENUCARE="menuCareKey"#看护助手
+    MENUSETTING="menuSettingKey"#设备设置
 
 
 
 
+    @allure.step("进入设备拉流界面")
     def enter_play_page(self):
         self.click(self.PLAY_IPC)
         self.click(self.DISMISS)
@@ -132,10 +134,19 @@ class PlayPage(BasePage):
         # 在 Native 上点击坐标 (200, 200)
         self.switch_context(self.tap_x_y, 200, 200)
 
-    allure.step("对讲功能")
+    @allure.step("对讲功能")
     def talk_play(self):
         self.click(self.TALK)
         time.sleep(10)
+
+    @allure.step("看护助手测试用例")
+    def care_play(self):
+        self.click(self.MENUCARE)
+
+    @allure.step("设备设置测试用例")
+    def setting_play(self):
+        self.click(self.MENUSETTING)
+
 
 
 
