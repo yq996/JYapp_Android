@@ -13,4 +13,4 @@ class LoginPage(BasePage):
         self.send_keys(self.PASSWORD, password)
         self.click(self.AGREEMENT)
         self.click(self.LOGIN_BUTTON)
-        self.assert_element_text("设备显示")
+        self.assert_element("text","设备显示")

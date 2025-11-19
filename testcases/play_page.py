@@ -30,15 +30,6 @@ class PlayPage(BasePage):
         self.click(self.PLAY_IPC)
         self.click(self.DISMISS)
 
-    @allure.step("云台控制页测试")
-    def play_video(self):
-        self.scroll(self.REFRESH_BTN)
-        self.click(self.PLAY_IPC)
-        self.click(self.DISMISS)
-        self.click(self.PTZ_BTN)
-        self.long_click(self.PTZ_LEFT)
-        self.click(self.PTZ_BTN)
-
     @allure.step("云台控制测试用例1-UP")
     def play_video1(self):
         self.click(self.PTZ_BTN)

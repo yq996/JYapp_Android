@@ -9,3 +9,6 @@ class Message(BasePage):
     @allure.step("消息界面测试用例")
     def message_home(self):
         self.click(self.MESSAGE)
+        self.scroll("type","MessagePager",0,-500)
+
+

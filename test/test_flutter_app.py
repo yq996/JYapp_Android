@@ -6,7 +6,7 @@ from appium_flutter_finder.flutter_finder import FlutterFinder, FlutterElement
 from appium.options.common import AppiumOptions
 from pyexpat.errors import messages
 
-from testcases.devices import Device
+from testcases.devices_page import Device
 from testcases.login_page import LoginPage
 from testcases.message import Message
 from testcases.person import Person
@@ -53,9 +53,8 @@ class TestFlutterApp:
 
         # 登录操作
         login_page.login("18588261207", "1qaz2wsx")
-
-        play_page.enter_play_page()
-        play_page.pa()
+        time.sleep(3)
+        # play_page.enter_play_page()
         # play_page.play_video1()
         # play_page.play_video2()
         # play_page.play_video3()
