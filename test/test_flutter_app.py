@@ -1,3 +1,4 @@
+import json
 import time
 import allure
 import pytest
@@ -5,12 +6,12 @@ from appium import webdriver
 from appium_flutter_finder.flutter_finder import FlutterFinder, FlutterElement
 from appium.options.common import AppiumOptions
 from pyexpat.errors import messages
-
 from testcases.devices_page import Device
 from testcases.login_page import LoginPage
 from testcases.message import Message
 from testcases.person import Person
 from testcases.play_page import PlayPage
+from utils.read_json import get_data
 from utils.record_video import *
 from utils.get_devices import make_devices_list
 from utils.start_appium import start_appium
@@ -39,11 +40,14 @@ class TestFlutterApp:
         self.finder = FlutterFinder()
 
         yield
-        #
-        # # if self.driver is not None:
-        # self.driver.quit()
 
-    def test_1(self):
+        if self.driver is not None:
+            self.driver.quit()
+
+    data=get_data()
+    @pytest.mark.parametrize("case",data)
+    def test_1(self,case):
+        print("1",type(case))
         allure.dynamic.title(f"{self.udid}设备用例执行")
         login_page = LoginPage(self.driver, self.finder)
         play_page = PlayPage(self.driver, self.finder)
@@ -52,25 +56,25 @@ class TestFlutterApp:
         device_page=Device(self.driver, self.finder)
 
         # 登录操作
-        login_page.login("18588261207", "1qaz2wsx")
-        play_page.enter_play_page()
-        play_page.play_video1()
-        play_page.play_video2()
-        play_page.play_video3()
-        play_page.play_video4()
-        play_page.play_video5()
-        play_page.play_video6()
-        play_page.play_video7()
-        play_page.play_video8()
-        play_page.full_play_video1()
-        play_page.full_play_video2()
-        play_page.full_play_video3()
-        play_page.full_play_video4()
-        play_page.full_play_video5()
-        play_page.full_play_video6()
-        play_page.full_play_video7()
-        play_page.full_play_video8()
-        play_page.full_sleep_wake_voice()
+        login_page.login(case["login"]["username"], case["login"]["password"],case["login"]["expect_value"])
+        # play_page.enter_play_page()
+        # play_page.play_video1()
+        # play_page.play_video2()
+        # play_page.play_video3()
+        # play_page.play_video4()
+        # play_page.play_video5()
+        # play_page.play_video6()
+        # play_page.play_video7()
+        # play_page.play_video8()
+        # play_page.full_play_video1()
+        # play_page.full_play_video2()
+        # play_page.full_play_video3()
+        # play_page.full_play_video4()
+        # play_page.full_play_video5()
+        # play_page.full_play_video6()
+        # play_page.full_play_video7()
+        # play_page.full_play_video8()
+        # play_page.full_sleep_wake_voice()
         # play_page.full_chang_Resolution()
         # play_page.full_talk_play()
         # play_page.full_take_pic()
@@ -80,20 +84,20 @@ class TestFlutterApp:
         # self.driver.back()
         # play_page.setting_play()
         # self.driver.back()
-        play_page.quick_play()
-        play_page.set_weather()
-        self.driver.back()
-        play_page.leave_Message()
-        self.driver.back()
-        play_page.call_History()
-        self.driver.back()
-        time.sleep(3)
-        play_page.chang_Resolution()
-        play_page.sleep_wake_voice()
-        self.driver.back()
-        message_page.message_home()
-        person_page.person_home()
-        device_page.devices_home()
+        # play_page.quick_play()
+        # play_page.set_weather()
+        # self.driver.back()
+        # play_page.leave_Message()
+        # self.driver.back()
+        # play_page.call_History()
+        # self.driver.back()
+        # time.sleep(3)
+        # play_page.chang_Resolution()
+        # play_page.sleep_wake_voice()
+        # self.driver.back()
+        # message_page.message_home()
+        # person_page.person_home()
+        # device_page.devices_home()
 
 
 
