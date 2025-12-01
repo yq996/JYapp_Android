@@ -1,0 +1,61 @@
+"""主页
+设备：homeDeviceKey
+消息：homeMessageKey
+个人：homePersonKey
+
+预览页
+云台按钮：ptzControlBtnKey
+底部
+看护助手：_careMenuKey
+录像回放：_playbackMenuKey
+对讲：_talkMenuKey
+云存储：_cloudMenuKey
+快捷：liveMenuKey
+
+截图：takePicKey
+录像：recodeKey
+全屏：fullScreenKey
+
+设备列表
+刷新：refreshIndicatorKey
+
+弹出菜单
+看护助手：menuCareKey
+视频回放：menuPlayBackKey
+设备设置：menuSettingKey
+
+每个设备的菜单按钮：more_+index 比如第一个设备 more_0
+每个设备的播放：play_+index 比如第一个设备 play_0
+
+取消声音声音克隆：dismissFamilyVoiceDialog
+
+拉流界面点击(弹出功能):Preview_Key
+
+localWeatherBtnKey 当地天气
+
+leaveMessageBtnKey 留言记录
+
+callHistoryBtnKey 呼叫记录
+
+
+changeResolutionKey 切换分辨率
+
+previewSleepKey 休眠
+
+previewSetMuteKey 设置静音
+
+resolutionRadioKey  清新度选择  （是一个RadioListTile 单选控件）
+
+resolutionSubmitKey 清晰度选择确认
+
+toWakeUpKey 去唤醒
+"""
+
+#各个版本修改详情
+v1.1 基础脚本
+v1.2 完善脚本
+v1.3 添加 滑动刷新，常按操作
+v1.4 添加点击任意坐标位置，切换驱动（Uiautormator和flutter驱动的切换）
+v1.5 修改断言方法以及定位元素方法(增加异常判断)，云台控制页测试例编写完成，登录页测试用例编写完成，设备页面测试用例完成20%
+v1.6 整合定位元素方法以及断言，滑动的方法
+v1.7 修改点击方法(增加可选择文本点击),录屏时间限制为30分钟,拉流界面测试用例完成90%,全屏测试用例完成90%，设备页面测试用例完成50%

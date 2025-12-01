@@ -1,0 +1,15 @@
+# 忽略虚拟环境
+.venv/
+# 忽略 PyCharm 配置
+.idea/
+# 忽略日志文件
+*.log
+#Git版本控制
+.git/
+# pytest测试缓存
+.pytest_cache/
+# Python字节码缓存
+__pycache__/
+
+report/*.mp4
+

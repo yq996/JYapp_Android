@@ -1,0 +1,10 @@
+.side-nav__brand {
+  background: url('JYlogo.png') no-repeat left center !important;      
+  margin-left: 10px;
+  height: 55px;
+  background-size: contain !important;
+
+}
+.side-nav__brand span{
+    display: none;
+}
