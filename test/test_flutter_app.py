@@ -47,7 +47,6 @@ class TestFlutterApp:
     data=get_data()
     @pytest.mark.parametrize("case",data)
     def test_1(self,case):
-        print("1",type(case))
         allure.dynamic.title(f"{self.udid}设备用例执行")
         login_page = LoginPage(self.driver, self.finder)
         play_page = PlayPage(self.driver, self.finder)
@@ -57,6 +56,11 @@ class TestFlutterApp:
 
         # 登录操作
         login_page.login(case["login"]["username"], case["login"]["password"],case["login"]["expect_value"])
+        # person_page.personal_change()
+        # person_page.personal_login_out()
+        # person_page.personal_login_out1()
+        # person_page.manage()
+        # person_page.delete_user()
         # play_page.enter_play_page()
         # play_page.play_video1()
         # play_page.play_video2()
@@ -96,7 +100,8 @@ class TestFlutterApp:
         # play_page.sleep_wake_voice()
         # self.driver.back()
         # message_page.message_home()
-        # person_page.person_home()
+        person_page.cared_person1()
+        # person_page.cared_person2()
         # device_page.devices_home()
 
 

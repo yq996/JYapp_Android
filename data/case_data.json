@@ -1,16 +1,10 @@
 [
   {
     "login": {
-      "username": "18588261207",
-      "password": "1qaz2wsx",
-      "expect_value": "设备显示"
+      "username": "19148839927",
+      "password": "yanqing123!",
+      "expect_value": "个人"
     }
-  },
-  {
-  "login": {
-    "username": "18588261207",
-    "password": "12312",
-    "expect_value": "密码长度不能少于6位"
-  }
   }
 ]
+

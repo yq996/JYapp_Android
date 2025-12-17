@@ -1,4 +1,5 @@
-"""主页
+"""
+主页
 设备：homeDeviceKey
 消息：homeMessageKey
 个人：homePersonKey
@@ -49,6 +50,113 @@ resolutionRadioKey  清新度选择  （是一个RadioListTile 单选控件）
 resolutionSubmitKey 清晰度选择确认
 
 toWakeUpKey 去唤醒
+
+
+WeatherDetailPage_ElevatedButton_InitiateCallButton  发起通话
+PersonPage_InkWell_CaretakerManagement 被看护人管理
+PersonPage_InkWell_FamilyVoiceManagement 亲人声音管理
+CustomPopup_IconButton_DoRecord 重新录
+LeaveMessageDetail_Container_ClickToLeaveMessage 点击开始留言
+AddCaretakerPage2_ElevatedButton_save 保存（添加被看护人界面）
+AddCaretakerPage2_CustomEditText_Name 姓名（添加被看护人界面）
+AddCaretakerPage2_ListView_Birthday  生日	（添加被看护人界面）
+AddCaretakerPage2_BottomSheetCenter_Birthday 选择生日弹框（添加被看护人界面）
+CaretakerSettingMain_ElevatedButton_addCaretaker  添加被看护人（个人中心 --被看人管理）
+
+DayPickerBottomSheet_CalendarTypeOption_Solar 选择生日的阳历
+DayPickerBottomSheet_CalendarTypeOption_Lunar 选择生日的农历
+SolarDatePicker_ListWheelScrollView_Year  选择生日（阳历）--年
+SolarDatePicker_ListWheelScrollView_Month  选择生日（阳历）--月
+SolarDatePicker_ListWheelScrollView_Date  选择生日（阳历）--日
+LunarDatePicker_ListWheelScrollView_Year  选择生日（农历）--年
+LunarDatePicker_ListWheelScrollView_Month  选择生日（农历）--月
+LunarDatePicker_ListWheelScrollView_Date  选择生日（农历）--日
+DayPickerBottomSheet_ElevatedButton_Cancel 选择生日的取消
+DayPickerBottomSheet_ElevatedButton_Sure 选择生日的确定
+
+AddClockPage_TimePicker 添加闹钟界面--滑动时分选择组件
+TimePicker_ListWheelScrollView_Hour 小时选择
+TimePicker_ListWheelScrollView_Min  分钟选择
+
+AddClockPage_ListView_SettingsListItemNoPadding3  添加闹钟界面的重复、备注、播报语音（是一个listview列表）
+
+AddClockPage_ElevatedButton_Cancel 添加闹钟界面取消按钮
+AddClockPage_ElevatedButton_Complete  添加闹钟界面完成按钮
+BroadcastVoiceSettingPage_CustomButton_Confirm 播报语音界面确定按钮
+BroadcastVoiceSettingPage_ListView_EmptyVoice  播报语音界面无（listview列表）
+BroadcastVoiceSettingPage_ListView_SystemVoice  播报语音界面系统语音（listview列表）
+BroadcastVoiceSettingPage_ListView_CustomVoice 播报语音界面自定义语音（listview列表）
+
+ClockSettingMain_ElevatedButton_AddClock 语音闹钟设置界面 添加闹钟按钮
+AddFamilyVoicePage_ListView_BasicInfo 添加亲人声音 -->基本信息列表
+AddFamilyVoicePage_InputNameBottomSheet  添加亲人声音 -->基本信息-->声音名字  弹框的key
+InputNameBottomSheet_TextField_Name 添加亲人声音 -->基本信息-->声音名字 --> 请输入声音名字的编辑框
+InputNameBottomSheet_ElevatedButton_Save 添加亲人声音 -->基本信息-->声音名字 --> 确定并保存
+
+AddFamilyVoicePage_DayPickerBottomSheet 添加亲人声音 -->基本信息-->生日 --> 弹框的key
+
+AddFamilyVoicePage_BottomSheet_Sex 添加亲人声音 -->基本信息-->性别 --> 弹框的key
+
+SexSelectBottomSheet_ListView_Sex 选择性别--列表
+SexSelectBottomSheet_ConfirmButton  选择性别--确认
+
+FamilyVoiceMain_ElevatedButton_addFamilyVoice 亲人声音风格首界面---添加声音风格按钮
+FamilyVoiceMain_ListView_GuardianList 亲人声音风格首界面--声音列表
+
+FilterCareTaker_ListView 添加亲人声音--筛选被看护人弹框--列表
+FilterCareTaker_ElevatedButton_ConfirmButton 添加亲人声音--筛选被看护人弹框--确认并筛选
+RelatePersonPage_ElevatedButton_Back_Step 添加亲人声音--筛选被看护人---返回上一步
+RelatePersonPage_ElevatedButton_Next_Step 添加亲人声音--筛选被看护人---下一步
+RelatePersonPage_InkWell_Dependent_Filter  添加亲人声音--筛选被看护人按钮
+RelatePersonPage_ListView_Relation_Info 添加亲人声音--筛选被看护人--关系信息列表（关系、称呼）
+RelationshipPage_ElevatedButton_ConfirmButton 添加亲人声音--筛选被看护人--关系弹框确定按钮
+RelationshipPage_GridView_RelationshipGridView 添加亲人声音--筛选被看护人--关系弹框列表
+InputNickNameBottomSheet_ElevatedButton_Save_Btn 添加亲人声音--筛选被看护人--称呼弹框---确定并保存
+InputNickNameBottomSheet_TextField_NickName 添加亲人声音--筛选被看护人--称呼弹框---称呼编辑框
+
+
+AddFamilyVoiceUploadVoice_ElevatedButton_Back_Btn 添加亲人声音--上传录音界面--返回上一步
+AddFamilyVoiceUploadVoice_ElevatedButton_SureAndSubmit_Btn 添加亲人声音--上传录音界面--确认并提交
+AddFamilyVoice_UploadVoice_InkWell_TipIcon  添加亲人声音--上传录音界面---感叹号按钮
+ImportantTip_IconButton_Dismiss_Btn 添加亲人声音--上传声音界面--重要提醒弹框--X按钮
+ImportantTip_ElevatedButton_PlayVoice_Btn 添加亲人声音--上传声音界面--重要提醒弹框--试听声音
+ImportantTip_ElevatedButton_StartRecord_Btn 添加亲人声音--上传声音界面--重要提醒弹框--开始录音
+
+RecordFamilyVoice_IconButton_DoRecord_Btn  添加亲人声音--上传声音界面--点击开始录音
+RecordFamilyVoice_IconButton_DoRecord_Btn  添加亲人声音--上传声音界面--点击结束录音
+RecordFamilyVoice_IconButton_PlayPause_Btn 添加亲人声音--上传声音界面--点击播放按钮（暂停）
+RecordFamilyVoice_InkWell_Delete_Btn 添加亲人声音--上传声音界面--删除
+
+
+ValueKey('PersonPage_to_PersonPersonalPage'),//Key for '个人—>个人中心页面button'
+
+ValueKey('ChangePassword_Button'), // Key for '修改账号密码'
+
+ValueKey('RightsManagement_Button'), // Key for '权限管理'
+
+ValueKey('DeleteUser_Button'), // Key for '注销账号'
+
+ValueKey('Logout_Button'),//Key for '退出当前账号'
+
+ValueKey('Logout_CancelButton'),//Key for '取消退出账号'
+
+ValueKey('Logout_ConfirmButton'),//Key for '确认退出账号'
+
+ValueKey('ChangePasswordPage_OldPasswordField'),//Key for '修改密码界面，旧密码输入框'
+
+ValueKey('ChangePasswordPage_NewPasswordField'),//Key for '修改密码界面，新密码输入框'​
+
+ValueKey('ChangePasswordPage_ConfirmNewPasswordField'),//Key for '修改密码界面，确认密码输入框'​
+
+ValueKey('ChangePasswordPage_ConfirmChangeButton'),//Key for '修改密码界面，确认修改密码按钮'​
+
+ValueKey('Agree_AgreementCheckbox'),//Key for '账号注销界面，确认框按钮'​
+
+ValueKey('Cancel_DeleteButton'),//Key for '账号注销界面​，取消注销按钮'​
+
+ValueKey('Confirm_DeleteButton'),//Key for '账号注销界面​，确认注销按钮'
+Cancel_Delete_User 再想想 注销按钮
+Confirm_Delete_User 确认注销按钮
 """
 
 #各个版本修改详情
@@ -60,3 +168,5 @@ v1.5 修改断言方法以及定位元素方法(增加异常判断)，云台控�
 v1.6 整合定位元素方法以及断言，滑动的方法
 v1.7 修改点击方法(增加可选择文本点击),录屏时间限制为30分钟,拉流界面测试用例完成90%,全屏测试用例完成90%，设备页面测试用例完成50%
 v1.8 增加数据参数化，使用参数化装饰器，同一个测试函数跑不同的测试数据用例
+v1.9 断言方法的变更-----使用appium flutter driver 自带断言方法----- 个人页面的被看护人管理测试用例编写完成---个人页面的修改密码，退出登录，注销功能测试用例编写完成,权限管理功能待讨论是否需要做
+     添加滑动断言(用于添加成功之后 去断言列表里添加的内容)

@@ -51,10 +51,11 @@ class BasePage:
         }
         self.driver.execute_script('flutter:longTap', finder,options)
 
-    def scrollIntoView(self):
+    @allure.step("滑动到固定位置")
+    def scrollIntoView(self,Expect_value):
         self.driver.execute_script(
             'flutter:scrollIntoView',
-            self.finder.by_value_key("play_0"),
+            self.finder.by_text(Expect_value),
             {"alignment": 0.1}
         )
 
@@ -74,33 +75,86 @@ class BasePage:
         self.driver.execute_script('flutter:scroll', finder, scroll_value)
 
     @allure.step(f"输入文本")
-    def send_keys(self, key, text):
-        el = self.get_element("key",key)
-        el.send_keys(text)
+    def send_keys(self, locator_type,locator_value,entext_value):
+        global el
+        if locator_type == "key":
+            el = self.get_element("key", locator_value)
+        elif locator_type == "text":
+            el = self.get_element("text", locator_value)
+        el.send_keys(entext_value)
 
-    @allure.step("断言")
-    def assert_element(self,locator_type,locator_value,Expect_value=None,timeout=1):
-        el=None
+    # @allure.step("断言")
+    # def assert_element(self,locator_type,locator_value,Expect_value=None,timeout=5):
+    #     el=None
+    #     if locator_type == "text":
+    #         for _ in range(timeout):
+    #              try:
+    #                 el=self.get_element("text",locator_value)
+    #                 break
+    #              except Exception:
+    #                  time.sleep(1)
+    #         if el is None:
+    #             assert False,f"未找到文本{locator_value}"
+    #         assert el.text==locator_value,f"期望文本：{locator_value},实际结果：{el.text}"
+    #     elif locator_type == "key":
+    #         for _ in range(timeout):
+    #             try:
+    #                 el = self.get_element("key", locator_value)
+    #                 break
+    #             except Exception:
+    #                 time.sleep(1)
+    #         if el is None:
+    #             assert False, f"未找到key值{locator_value}"
+    #         assert el.text ==Expect_value , f"期望key的值：{Expect_value},实际结果：{el.text}"
+
+    @allure.step("断言存在")
+    def assert_true(self,locator_type,Expect_value):
         if locator_type == "text":
-            for _ in range(timeout):
-                 try:
-                    el=self.get_element("text",locator_value)
-                    break
-                 except Exception:
-                     time.sleep(1)
-            if el is None:
-                assert False,f"未找到文本{locator_value}"
-            assert el.text==locator_value,f"期望文本：{locator_value},实际结果：{el.text}"
+            self.driver.execute_script(
+                'flutter:assertVisible',
+                {'text': Expect_value },
+                1000
+            )
         elif locator_type == "key":
-            for _ in range(timeout):
-                try:
-                    el = self.get_element("key", locator_value)
-                    break
-                except Exception:
-                    time.sleep(1)
-            if el is None:
-                assert False, f"未找到key值{locator_value}"
-            assert el.text ==Expect_value , f"期望key的值：{Expect_value},实际结果：{el.text}"
+            self.driver.execute_script(
+                'flutter:assertVisible',
+                {'key': Expect_value},
+                1000
+            )
+
+    @allure.step("滑动断言")
+    def scroll_assert(self, expect_value,scroll_list, max_swipes=20):
+        """
+        滑动列表，直到目标文本出现断言通过
+        expect_value: 要断言可见的文本
+        max_swipes: 最大滑动次数，防止无限循环
+        """
+        for i in range(max_swipes):
+            try:
+                # 尝试断言目标文本可见
+                self.driver.execute_script(
+                    'flutter:assertVisible',
+                    {'text': expect_value},
+                    1000
+                )
+                # 如果断言通过，结束函数
+                return
+            except Exception:
+                # 如果断言失败，滑动列表
+                self.scroll("key", scroll_list, 0, -200)
+
+    @allure.step("断言不存在")
+    def assert_false(self, Expect_value, locator_type):
+        if locator_type == "text":
+            self.driver.execute_script(
+                'flutter:assertNotVisible',
+                {'text': Expect_value}
+            )
+        elif locator_type == "key":
+            self.driver.execute_script(
+                'flutter:assertNotVisible',
+                {'key': Expect_value}
+            )
 
     def wait(self, sec:int):
         time.sleep(sec)
