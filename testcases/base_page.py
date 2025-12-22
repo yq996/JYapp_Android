@@ -83,6 +83,9 @@ class BasePage:
             el = self.get_element("text", locator_value)
         el.send_keys(entext_value)
 
+
+
+
     # @allure.step("断言")
     # def assert_element(self,locator_type,locator_value,Expect_value=None,timeout=5):
     #     el=None

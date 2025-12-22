@@ -40,9 +40,9 @@ class TestFlutterApp:
         self.finder = FlutterFinder()
 
         yield
-
-        if self.driver is not None:
-            self.driver.quit()
+        #
+        # if self.driver is not None:
+        #     self.driver.quit()
 
     data=get_data()
     @pytest.mark.parametrize("case",data)
@@ -61,7 +61,7 @@ class TestFlutterApp:
         # person_page.personal_login_out1()
         # person_page.manage()
         # person_page.delete_user()
-        # play_page.enter_play_page()
+        play_page.enter_play_page()
         # play_page.play_video1()
         # play_page.play_video2()
         # play_page.play_video3()
@@ -88,8 +88,8 @@ class TestFlutterApp:
         # self.driver.back()
         # play_page.setting_play()
         # self.driver.back()
-        # play_page.quick_play()
-        # play_page.set_weather()
+        play_page.quick_play("农历")
+        # play_page.set_weather()  #bug
         # self.driver.back()
         # play_page.leave_Message()
         # self.driver.back()
@@ -100,7 +100,7 @@ class TestFlutterApp:
         # play_page.sleep_wake_voice()
         # self.driver.back()
         # message_page.message_home()
-        person_page.cared_person1()
+        # person_page.cared_person1()
         # person_page.cared_person2()
         # device_page.devices_home()
 
