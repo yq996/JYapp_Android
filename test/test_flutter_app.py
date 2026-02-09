@@ -1,4 +1,5 @@
 import json
+import logging
 import time
 import allure
 import pytest
@@ -31,6 +32,7 @@ class TestFlutterApp:
             "appActivity": "com.pwithe.jyapps.MainActivity",
             "automationName": "flutter",
             "systemPort": request.param["systemPort"],
+            "printPageSourceOnFindFailure":True
             # "noReset": True,
         }
         options = AppiumOptions()
@@ -53,9 +55,10 @@ class TestFlutterApp:
         message_page=Message(self.driver, self.finder)
         person_page=Person(self.driver, self.finder)
         device_page=Device(self.driver, self.finder)
-
+        #
         # 登录操作
         login_page.login(case["login"]["username"], case["login"]["password"],case["login"]["expect_value"])
+
         # person_page.personal_change()
         # person_page.personal_login_out()
         # person_page.personal_login_out1()
@@ -100,7 +103,7 @@ class TestFlutterApp:
         # play_page.sleep_wake_voice()
         # self.driver.back()
         # message_page.message_home()
-        person_page.cared_person1()
+        # person_page.cared_person1()
         # person_page.cared_person2()
         # device_page.devices_home()
 

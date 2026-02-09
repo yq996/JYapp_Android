@@ -2,6 +2,10 @@ import subprocess
 import psutil
 import pytest
 import allure
+
+from utils.get_devices import get_devices_id
+
+
 def is_port_in_use(port):
     """判断本地端口是否被占用"""
     #psutil.net_connections(kind='inet')会返回所有 TCP/UDP 网络连接信息
@@ -11,11 +15,13 @@ def is_port_in_use(port):
         if conn.laddr.port == port and conn.status == psutil.CONN_LISTEN:
             return True
     return False
+
 @pytest.fixture(scope="session",autouse=True)
 def start_appium(port=4723):
     if not is_port_in_use(port):
         print(f"\n这次测试第一次打开appium服务{port}")
-        cmd = f"appium -p {port}"
+        cmd = f'appium -p {port} --log "D:\\appium_flutter\\logs\\appium_{port}.txt" --log-level debug'
+
         subprocess.Popen(cmd, shell=True)
     else:
         print(f"\n这次测试的appium服务{port}已经打开过了！无需重复打开！")

@@ -55,6 +55,7 @@ class Person(BasePage):
         self.scroll("key",self.SOLAR_DATE,0,-100)
         self.click("key",self.SURE_BIRTHDAY)
         self.click("key",self.SAVE_CARED_PERSON)
+        self.assert_true("toast","添加成功")
         self.scroll_assert("酷酷酷",self.CARED_SCROLL_LIST)
 
 
@@ -73,14 +74,6 @@ class Person(BasePage):
         self.click("key", self.SURE_BIRTHDAY)
         self.click("key", self.SAVE_CARED_PERSON)
         self.driver.back()
-
-    # @allure.step("添加亲人声音-阳历时间")
-    # def person_voice(self):
-    #     self.click("key",self.PERSON)
-    #     self.click("key",self.PERSON_VOICE)
-    #     self.click("key",self.ADD_VOICE)
-    #     self.click("key",self.ADD_VOICE_NAME)
-    #     self.send_keys("key",self.ADD_VOICE_TEXTFIELD,"声音1")
 
     @allure.step("个人中心测试用例-修改密码")
     def personal_change(self):
