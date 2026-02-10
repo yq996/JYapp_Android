@@ -32,7 +32,7 @@ class TestFlutterApp:
             "appActivity": "com.pwithe.jyapps.MainActivity",
             "automationName": "flutter",
             "systemPort": request.param["systemPort"],
-            "printPageSourceOnFindFailure":True
+            # "printPageSourceOnFindFailure":True,
             # "noReset": True,
         }
         options = AppiumOptions()
@@ -42,9 +42,6 @@ class TestFlutterApp:
         self.finder = FlutterFinder()
 
         yield
-
-        if self.driver is not None:
-            self.driver.quit()
 
     data=get_data()
     @pytest.mark.parametrize("case",data)
@@ -59,53 +56,50 @@ class TestFlutterApp:
         # 登录操作
         login_page.login(case["login"]["username"], case["login"]["password"],case["login"]["expect_value"])
 
+        play_page.enter_play_page()
+        play_page.play_video1()
+        play_page.play_video2()
+        play_page.play_video3()
+        play_page.play_video4()
+        play_page.play_video5()
+        play_page.play_video6()
+        play_page.play_video7()
+        play_page.play_video8()
+        play_page.full_play_video1()
+        play_page.full_play_video2()
+        play_page.full_play_video3()
+        play_page.full_play_video4()
+        play_page.full_play_video5()
+        play_page.full_play_video6()
+        play_page.full_play_video7()
+        play_page.full_play_video8()
+        play_page.full_sleep_wake_voice()
+        play_page.full_chang_Resolution()
+        play_page.full_take_pic()
+        play_page.take_pic()
+        play_page.care_play()
+        self.driver.back()
+        play_page.set_weather()
+        self.driver.back()
+        play_page.leave_Message()
+        self.driver.back()
+        play_page.call_History()
+        self.driver.back()
+        time.sleep(3)
+        play_page.chang_Resolution()
+        play_page.sleep_wake_voice()
+        self.driver.back()
+        message_page.message_home()
+        person_page.cared_person1()
+        person_page.cared_person2()
+        device_page.devices_home()
+        person_page.personal_login_out()
+        person_page.personal_login_out1()
+
         # person_page.personal_change()
-        # person_page.personal_login_out()
-        # person_page.personal_login_out1()
+
         # person_page.manage()
         # person_page.delete_user()
-        # play_page.enter_play_page()
-        # play_page.play_video1()
-        # play_page.play_video2()
-        # play_page.play_video3()
-        # play_page.play_video4()
-        # play_page.play_video5()
-        # play_page.play_video6()
-        # play_page.play_video7()
-        # play_page.play_video8()
-        # play_page.full_play_video1()
-        # play_page.full_play_video2()
-        # play_page.full_play_video3()
-        # play_page.full_play_video4()
-        # play_page.full_play_video5()
-        # play_page.full_play_video6()
-        # play_page.full_play_video7()
-        # play_page.full_play_video8()
-        # play_page.full_sleep_wake_voice()
-        # play_page.full_chang_Resolution()
-        # play_page.full_talk_play()
-        # play_page.full_take_pic()
-        # play_page.take_pic()
-        # play_page.talk_play()
-        # play_page.care_play()
-        # self.driver.back()
-        # play_page.setting_play()
-        # self.driver.back()
-        # play_page.quick_play()
-        # play_page.set_weather()
-        # self.driver.back()
-        # play_page.leave_Message()
-        # self.driver.back()
-        # play_page.call_History()
-        # self.driver.back()
-        # time.sleep(3)
-        # play_page.chang_Resolution()
-        # play_page.sleep_wake_voice()
-        # self.driver.back()
-        # message_page.message_home()
-        # person_page.cared_person1()
-        # person_page.cared_person2()
-        # device_page.devices_home()
 
 
 

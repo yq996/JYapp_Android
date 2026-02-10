@@ -1,1 +1,1 @@
-{"42a3427fe61455b0b8cebe9dd7533271":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1},"items":[{"uid":"e89adfd145380174","status":"passed","time":{"start":1768200618046,"stop":1768200622923,"duration":4877}}]}}
+{"fbc6e6e81ec6cf11edb41bc7f8459397":{"statistic":{"failed":1,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":1},"items":[{"uid":"c49bf749dc5f582","status":"failed","statusDetails":"AssertionError: 超时未找到 Flutter 元素：ptRightKey","time":{"start":1770624720570,"stop":1770624991041,"duration":270471}}]}}
