@@ -6,13 +6,33 @@ from testcases.base_page import BasePage
 
 class PlayPage(BasePage):
     #key值
-    PLAY_IPC = "play_0" #进入设备拉流界面
+    PLAY_IPC = "play_0" #选择第一个设备，进入设备拉流界面
     PTZ_BTN = "ptzControlBtnKey" #点击云台控制
     PTZ_UP = "ptzUpKey" #云台控制上
     PTZ_DOWN="ptzDownKey"#云台控制下
     PTZ_LEFT="ptzLeftKey"#云台控制左
     PTZ_RIGHT="ptRightKey"#云台控制右
     LIVEMENU="liveMenuKey"#快捷按钮
+    PersonManage="PersonPage_InkWell_CaretakerManagement"
+    AddCaretake="CaretakerSettingMain_ElevatedButton_addCaretake"
+    EditText_Name="AddCaretakerPage2_CustomEditText_Name"
+    ADD_BIRTHDAY = "AddCaretakerPage2_ListView_Birthday"
+    SOLAR_YEAR = "SolarDatePicker_ListWheelScrollView_Year"
+    SOLAR_MONTH = "SolarDatePicker_ListWheelScrollView_Month"
+    SOLAR_DATE = "SolarDatePicker_ListWheelScrollView_Date"
+    LUNAR_YEAR = "LunarDatePicker_ListWheelScrollView_Year"
+    LUNAR_MONTH = "LunarDatePicker_ListWheelScrollView_Month"
+    LUNAR_DATE = "LunarDatePicker_ListWheelScrollView_Date"
+    SURE_BIRTHDAY = "DayPickerBottomSheet_ElevatedButton_Sure"
+    SAVE_CARED_PERSON="AddCaretakerPage2_ElevatedButton_save"
+    TimePicker="AddClockPage_TimePicker"
+    TimePickerHour="TimePicker_ListWheelScrollView_Hour"
+    TimePickerHourMin="TimePicker_ListWheelScrollView_Min"
+
+
+    #
+
+
     PRENIEW="Preview_Key"#竖屏+横屏拉流界面
     DISMISS="dismissFamilyVoiceDialog" #亲人声音克隆取消
     TAKEPIC="takePicKey" #截图
@@ -21,6 +41,7 @@ class PlayPage(BasePage):
     TALK="_talkMenuKey"#对讲
     MENUCARE="menuCareKey"#看护助手
     MENUSETTING="menuSettingKey"#设备设置
+
     localWeather ="localWeatherBtnKey" #当地天气
     leaveMessage ="leaveMessageBtnKey" #留言记录
     callHistory ="callHistoryBtnKey" #呼叫记录
@@ -40,6 +61,20 @@ class PlayPage(BasePage):
     def enter_play_page(self):
         self.click("key",self.PLAY_IPC)
         self.click("key",self.DISMISS)
+
+    @allure.step(f"选择生日")
+    def Birthday(self, BIRTHDAYtype):
+        if BIRTHDAYtype == "阳历":
+            self.click("text", "阳历")
+            self.scroll("key", self.SOLAR_YEAR, 0, -100)
+            self.scroll("key", self.SOLAR_MONTH, 0, -100)
+            self.scroll("key", self.SOLAR_DATE, 0, -100)
+        elif BIRTHDAYtype == "农历":
+            self.click("text", "农历")
+            self.scroll("key", self.LUNAR_YEAR, 0, -100)
+            self.scroll("key", self.LUNAR_MONTH, 0, -100)
+            self.scroll("key", self.LUNAR_DATE, 0, -100)
+        self.click("key", self.SURE_BIRTHDAY)
 
     @allure.step("云台控制测试用例1-UP")
     def play_video1(self):
@@ -276,10 +311,20 @@ class PlayPage(BasePage):
 
 
     @allure.step("快捷功能测试用例")
-    def quick_play(self):
+    def quick_play(self,BIRTHDAYtype):
+        # 被看护人管理
         self.click("key",self.LIVEMENU)
         # 在 Native 上点击坐标 (200, 200)
-        self.switch_context(self.tap_x_y, 200, 200)
+        # self.switch_context(self.tap_x_y, 200, 200)
+        self.click("text","被看护人管理")
+        self.click("text", "添加被看护人")
+        self.send_keys("key",self.EditText_Name,"lisi")
+        self.click("key", self.ADD_BIRTHDAY)
+        self.Birthday(BIRTHDAYtype)
+        self.click("key", self.SAVE_CARED_PERSON)
+        self.driver.back()
+
+
 
     @allure.step("对讲功能")
     def talk_play(self):
@@ -297,6 +342,7 @@ class PlayPage(BasePage):
     @allure.step("天气设置测试用例")
     def set_weather(self):
         self.click("key",self.localWeather)
+
 
     @allure.step("留言记录测试用例")
     def leave_Message(self):
